@@ -67,9 +67,9 @@ class Contact {
      */
     fromJSON(data) {
         let stringArray = data.split(",");
-        this.FullName = data.FullName;
-        this.ContactNumber = data.ContactNumber;
-        this.EmailAddress = data.EmailAddress;
+        this.FullName = stringArray[0];
+        this.ContactNumber = stringArray[1];
+        this.EmailAddress = stringArray[2];
     }
 }
 //# sourceMappingURL=contact.js.map
