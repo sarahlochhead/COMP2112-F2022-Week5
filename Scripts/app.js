@@ -45,7 +45,7 @@
             });
         });
     }
-    {
+    function LoadContent() {
         switch (document.title) {
             case "Home":
                 $.get("./Views/content/home.html", function (html_data) { $("main").html(html_data); });
@@ -60,7 +60,7 @@
                 $.get("./Views/content/services.html", function (html_data) { $("main").html(html_data); });
                 break;
             case "Contact":
-                $.get("./Views/content/about.html", function (html_data) { $("main").html(html_data); });
+                $.get("./Views/content/contact.html", function (html_data) { $("main").html(html_data); });
                 break;
         }
     }

@@ -64,25 +64,25 @@ function LoadHeader(): void
 }
 
 
-function LoadContent(): void;
+function LoadContent():void
 {
-    switch (document.title)
+    switch (document.title) 
     {
         case "Home":
-            $.get("./Views/content/home.html", function (html_data){$("main").html(html_data);});
-                break;
+             $.get("./Views/content/home.html", function (html_data){$("main").html(html_data);});
+            break;
         case "About":
             $.get("./Views/content/about.html", function (html_data){$("main").html(html_data);});
             break;
         case "Projects":
             $.get("./Views/content/projects.html", function (html_data){$("main").html(html_data);});
-            break; 
+            break;
         case "Services":
             $.get("./Views/content/services.html", function (html_data){$("main").html(html_data);});
-            break;  
+            break;
         case "Contact":
-            $.get("./Views/content/about.html", function (html_data){$("main").html(html_data);});
-            break;  
+            $.get("./Views/content/contact.html", function (html_data){$("main").html(html_data);});
+            break;
     }
 }
 
