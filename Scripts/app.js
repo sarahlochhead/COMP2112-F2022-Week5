@@ -37,68 +37,58 @@
      */
     function LoadHeader() {
         $.get("./Views/components/header.html", function (html_data) {
-            // vanilla javascript
-            // document.getElementsByTagName("header")[0].innerHTML = html_data;
-            // jquery version
             $("header").html(html_data);
-            // activate the home link on initial load
+            // Activate the Home Link on initial load
             $("li>a#Home").addClass("active");
             $("li>a").on("click", function (event) {
                 event.preventDefault();
-                // change title
+                // Change Title
                 document.title = $(this).prop("id");
-                // change url
+                // Change URL
                 history.pushState({}, "", "/" + document.title);
-                // removes the active class from each list item first
+                // removes the active class from each list item
                 $("li>a").each(function () {
                     $(this).removeClass("active");
                 });
+                // Activate the current Link
+                $("li>a#" + document.title).addClass("active");
+                LoadContent();
             });
-            // activate the current link
-            $("li>a#" + document.title).addClass("active");
-            LoadContent();
         });
     }
-    ;
-}
-/**
- * This method loads and injects the page content
- *
- */
-);
-/**
- * This method loads and injects the page content
- *
- */
-function LoadContent() {
-    let contentLink = document.title.toLowerCase();
-    $.get("./Views/content/" + contentLink + ".html", function (html_data) {
-        $("main").html(html_data);
-    });
-}
-/**
- * This method loads and injects the footer content
- *
- */
-function LoadFooter() {
-    $.get("./Views/components/footer.html", function (html_data) {
-        // vanilla javascript
-        // document.getElementsByTagName("footer")[0].innerHTML = html_data;
-        // jquery version
-        $("footer").html(html_data);
-    });
-}
-// First method of using functions - a named function
-function Start() {
-    console.log("App Started!");
-    //initial load
-    document.title = "Home";
-    // change url
-    history.pushState({}, "", "/" + "/Home");
-    LoadContent();
-    LoadHeader();
-    LoadFooter();
-}
-window.addEventListener("load", Start);
-();
+    /**
+     * This method loads and injects the page content
+     *
+     */
+    function LoadContent() {
+        let contentLink = document.title.toLowerCase();
+        $.get("./Views/content/" + contentLink + ".html", function (html_data) {
+            $("main").html(html_data);
+        });
+    }
+    /**
+     * This method loads and injects the footer content
+     *
+     */
+    function LoadFooter() {
+        $.get("./Views/components/footer.html", function (html_data) {
+            // vanilla javascript
+            // document.getElementsByTagName("footer")[0].innerHTML = html_data;
+            // jquery version
+            $("footer").html(html_data);
+        });
+    }
+    // First method of using functions - a named function
+    function Start() {
+        console.log("App Started!");
+        //initial load
+        document.title = "Home";
+        // change url
+        history.pushState({}, "", "/" + "/Home");
+        LoadContent();
+        LoadHeader();
+        LoadFooter();
+    }
+    window.addEventListener("load", Start);
+})();
 //# sourceMappingURL=app.js.map

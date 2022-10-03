@@ -44,41 +44,38 @@
  * This method loads and injects the page header content
  *
  */
-function LoadHeader(): void
-{
-    $.get("./Views/components/header.html", function(html_data)
-    {
-        // vanilla javascript
-        // document.getElementsByTagName("header")[0].innerHTML = html_data;
+ function LoadHeader(): void
+ {
+     $.get("./Views/components/header.html", function(html_data)
+     {
+         $("header").html(html_data);
 
-        // jquery version
-        $("header").html(html_data);
+         // Activate the Home Link on initial load
+         $("li>a#Home").addClass("active");
 
-        // activate the home link on initial load
-        $("li>a#Home").addClass("active");
+         $("li>a").on("click", function(event)
+         {
+             event.preventDefault();
+             // Change Title
+             document.title= $(this).prop("id") as string;
+
+             // Change URL
+             history.pushState({}, "", "/" + document.title);
+
+             // removes the active class from each list item
+             $("li>a").each(function()
+             {
+                 $(this).removeClass("active");
+             });
+
+             // Activate the current Link
+             $("li>a#" + document.title).addClass("active");
+
+             LoadContent();
+         });
         
-        $("li>a").on("click", function(event)
-        {
-            event.preventDefault();
-            // change title
-            document.title = $(this).prop("id") as string;
-
-            // change url
-            history.pushState({},"", "/" + document.title);
-
-            // removes the active class from each list item first
-            $("li>a").each(function()
-            {
-                $(this).removeClass("active"));
-            });
-
-            // activate the current link
-            $("li>a#" + document.title).addClass("active");
-
-           LoadContent();
-        });
-    });
-}
+     });
+ }
 
 
 
