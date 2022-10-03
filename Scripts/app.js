@@ -36,6 +36,7 @@
      *
      */
     function LoadHeader() {
+        console.log("Loading Header ...");
         $.get("./Views/components/header.html", function (html_data) {
             $("header").html(html_data);
             // Activate the Home Link on initial load
@@ -61,6 +62,7 @@
      *
      */
     function LoadContent() {
+        console.log("Loading Content ...");
         let contentLink = document.title.toLowerCase();
         $.get("./Views/content/" + contentLink + ".html", function (html_data) {
             $("main").html(html_data);
@@ -71,6 +73,7 @@
      *
      */
     function LoadFooter() {
+        console.log("Loading Footer ...");
         $.get("./Views/components/footer.html", function (html_data) {
             // vanilla javascript
             // document.getElementsByTagName("footer")[0].innerHTML = html_data;
