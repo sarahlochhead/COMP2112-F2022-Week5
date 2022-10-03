@@ -46,7 +46,7 @@
  */
  function LoadHeader(): void
  {
-    console.log("Loading Header ...");
+     console.log("Loading Header...");
      $.get("./Views/components/header.html", function(html_data)
      {
          $("header").html(html_data);
@@ -113,22 +113,22 @@ function LoadFooter():void
 }
     
     // First method of using functions - a named function
-    function Start()
-    {
-        console.log("App Started!");
-        //initial load
-        document.title = "Home";
+   // First method of using functions
+   function Start()
+   {
+       console.log("App Started!");
 
-        // change url
-        history.pushState({},"", "/" + "/Home");
+       // initial load
+       document.title = "Home";
+       // Change URL
+       history.pushState({}, "", "/Home");
 
-        LoadContent();
-        
-        LoadHeader();
+       LoadContent();
 
-        LoadFooter();
-    }
+       LoadHeader();
+           
+       LoadFooter();
+   }
 
-    window.addEventListener("load", Start);
-    
+   window.addEventListener("load", Start);
 })();

@@ -36,7 +36,7 @@
      *
      */
     function LoadHeader() {
-        console.log("Loading Header ...");
+        console.log("Loading Header...");
         $.get("./Views/components/header.html", function (html_data) {
             $("header").html(html_data);
             // Activate the Home Link on initial load
@@ -82,12 +82,13 @@
         });
     }
     // First method of using functions - a named function
+    // First method of using functions
     function Start() {
         console.log("App Started!");
-        //initial load
+        // initial load
         document.title = "Home";
-        // change url
-        history.pushState({}, "", "/" + "/Home");
+        // Change URL
+        history.pushState({}, "", "/Home");
         LoadContent();
         LoadHeader();
         LoadFooter();
